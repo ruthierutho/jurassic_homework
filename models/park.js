@@ -12,7 +12,7 @@ Park.prototype.addDinosaur = function(dinosaur) {
 Park.prototype.removeDinosaur = function(dinosaur) {
     const indexOfDinosaur = this.dinosaurs.indexOf(dinosaur);
     this.dinosaurs.splice(indexOfDinosaur, 1);
-}
+};
 
 Park.prototype.dinosaurMostVisitors = function() {
     let most= 0;
@@ -22,7 +22,7 @@ Park.prototype.dinosaurMostVisitors = function() {
             return most;
         }
     }
-}
+};
 
 Park.prototype.dinosaurOfSpecies = function(species) {
     const speciesList = [];
@@ -32,7 +32,28 @@ Park.prototype.dinosaurOfSpecies = function(species) {
         }
     }
     return speciesList;
+};
+
+Park.prototype.totalDayVisitors = function() {
+    let dayVisitors = 0;
+    for ( const dinosaur of this.dinosaurs) {
+        dayVisitors += dinosaur.guestsAttractedPerDay;
+    }
+    return dayVisitors;
+};
+
+Park.prototype.totalYearVisitors = function() {
+    let yearVisitors = 0;
+    yearVisitors = this.totalDayVisitors() * 365;
+    return yearVisitors;
+};
+
+Park.prototype.totalYearRevenue = function(park) {
+    let yearRevenue = 0;
+    yearRevenue = this.totalYearVisitors() * park.ticketPrice;
+    return yearRevenue;
 }
+
 
 module.exports = Park;
 

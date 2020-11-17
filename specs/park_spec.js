@@ -68,10 +68,34 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, expected);
   } );
 
-  it('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.totalDayVisitors();
+    const expected = 210;
+    assert.strictEqual(actual, expected);
+  });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.totalYearVisitors();
+    const expected = 76650;
+    assert.strictEqual(actual, expected);
+  });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.totalYearRevenue(park);
+    const expected = 3832500;
+    assert.strictEqual(actual, expected);
+  });
 
 });
