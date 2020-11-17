@@ -25,14 +25,15 @@ Park.prototype.dinosaurMostVisitors = function() {
 }
 
 Park.prototype.dinosaurOfSpecies = function(species) {
-    let speciesList= [];
+    const speciesList = [];
     for (const dinosaur of this.dinosaurs) {
-        if (dinosaur.species === species) {
+        if (dinosaur.species === species) {   
             speciesList.push(dinosaur);
-            return speciesList;
         }
     }
+    return speciesList;
 }
+
 module.exports = Park;
 
 
