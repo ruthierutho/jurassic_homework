@@ -49,12 +49,24 @@ describe('Park', function() {
   });
 
   it('should be able to find the dinosaur that attracts the most visitors', function () {
-    const expected = park.dinosaurMostVisitors();
-    const actual = dinosaur
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.dinosaurMostVisitors();
+    const expected = 80
     assert.strictEqual(actual, expected)
   });
 
-  it('should be able to find all dinosaurs of a particular species');
+  it('should be able to find all dinosaurs of a particular species', function () {
+    park.addDinosaur(dinosaur);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const actual = park.dinosaurOfSpecies("t-rex"); 
+    const expected = [dinosaur1, dinosaur2];
+    assert.deepStrictEqual(actual, expected);
+  } );
 
   it('should be able to calculate the total number of visitors per day');
 

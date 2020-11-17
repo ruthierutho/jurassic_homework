@@ -15,13 +15,25 @@ Park.prototype.removeDinosaur = function(dinosaur) {
 }
 
 Park.prototype.dinosaurMostVisitors = function() {
-    let most = [];
-    for(const dinosaur in this.dinosaurs) {
-        if (this.dinosaurs.dinosaur.guestsAttractedPerDay > )
+    let most= 0;
+    for( const dinosaur of this.dinosaurs) {
+        if (dinosaur.guestsAttractedPerDay >= most) {
+            most = dinosaur.guestsAttractedPerDay;
+            return most;
+        }
+    }
+}
+
+Park.prototype.dinosaurOfSpecies = function(species) {
+    let speciesList= [];
+    for (const dinosaur of this.dinosaurs) {
+        if (dinosaur.species === species) {
+            speciesList.push(dinosaur);
+            return speciesList;
+        }
     }
 }
 module.exports = Park;
 
 
 
-  return largestNumber;
